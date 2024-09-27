@@ -1,1 +1,70 @@
-stuff
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hello!</title>
+    <meta name="description" content="description"/>
+    <meta name="author" content="author" />
+    <meta name="keywords" content="keywords" />
+    <link rel="stylesheet" href="https://unpkg.com/normalize.css@8.0.1/normalize.css" />
+    <link rel="stylesheet" href="./stylesheet.css" type="text/css" />
+  </head>
+  <body>
+    <div id="popup">
+      Now a short word from our sponsor.
+      <video class="ad" src="/ad.mp4" type="video/mp4" autoplay loop muted></video>
+      <button class="unmute-button" onclick="toggleMute()">Mute/Unmute</button>
+
+    </div>
+
+    <div class="center">
+        <h1 class="buildup">The place where you need to be is...</h1>
+        <div id="countdown" class="countdown"></div>
+        <h1 id="answer">Lecture Center F6</h1>
+    </div>
+
+    <script>
+      function showPopup() {
+          const popup = document.getElementById('popup');
+          popup.classList.add('show');
+      }
+
+      function showAnswer() {
+          const popup = document.getElementById('answer');
+          popup.classList.add('show');
+      }
+
+      window.onload = () => {
+          startCountdown();
+          setTimeout(showPopup, 4750); // 3000 milliseconds = 3 seconds
+          setTimeout(showAnswer, 5000); // 5000 milliseconds = 8 seconds (3s + 5s)
+        };
+
+      function toggleMute() {
+          const video = document.querySelector('.ad');
+          video.muted = !video.muted; // Toggle mute state
+          
+          // Update button text
+          const button = document.querySelector('.mute-button');
+          button.textContent = video.muted ? 'Unmute' : 'Mute';
+      }
+
+      function startCountdown() {
+            const countdownElement = document.getElementById('countdown');
+            const answerElement = document.querySelector('.answer');
+            let count = 5;
+
+            const countdownInterval = setInterval(() => {
+                countdownElement.textContent = count;
+                count--;
+
+                if (count < 0) {
+                    clearInterval(countdownInterval);
+                    countdownElement.style.display = 'none'; // Hide countdown
+                    answerElement.style.display = 'block'; // Show answer
+                }
+            }, 1000);
+        }
+  </script>
+  </body>
+</html>
