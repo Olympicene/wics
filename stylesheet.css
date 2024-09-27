@@ -15,7 +15,7 @@
     font-size: 3em;
 }
 
-#answer {
+#answer6 {
     margin: 0;
     font-size: 4em;
     opacity: 0;
@@ -23,7 +23,7 @@
     z-index: 1;
 }
 
-#answer.show {
+#answer6.show {
     opacity: 1;
 }
 
@@ -69,4 +69,24 @@ opacity: 1;
 .countdown {
     font-size: 5em;
     margin-bottom: 20px;
+}
+
+#answer1 {
+    display: none;
+}
+
+#answer2 {
+    display: none;
+}
+
+#answer3 {
+    display: none;
+}
+
+#answer4 {
+    display: none;
+}
+
+#answer5 {
+    display: none;
 }
